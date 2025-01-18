@@ -33,14 +33,14 @@ Simply download the files and open demo.html in a browser.
 1. Put the following into an HTML file:
 
 ```html
-<input list="autocomplete-city-list" id="city" autocomplete="off">
+<input list="autocomplete-city-list" autocomplete="off">
 
 <datalist id="autocomplete-city-list"></datalist>
 
 <script src="autocompleteCity.js"></script>
 <script>
   autocompleteCity(
-    document.getElementById('city'),
+    document.querySelector('input[list=autocomplete-city-list]'),
     document.getElementById('autocomplete-city-list'),
     (city) => {
       console.log(city)
