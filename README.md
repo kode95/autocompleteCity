@@ -11,7 +11,7 @@ This presents both advantages and disadvantages compared to the "normal" way of 
 - **No localization.** The city names are all in English, so for instance, if visitors to your website who live in the second-largest city in Switzerland input the name of their city, they'll have to write *Geneva* as opposed to *Genève* (French) or *Genf* (German).
 - **Semi-large file:** The city data and the JS code combined are about 2.6 MB, although when sent over HTTP, your server will probably compress them down to about 1 MB. Not terrible per se size-wise, but also not perfect.
 - **Only cities:** This project only allows you to autocomplete cities, not landmarks, restaurants, etc.
-- **Only cities with at least 5,000 inhabitants are autocompleted.** If you want cities down to 1,000 inhabitants to be autocompleted (which will make the file size considerably bigger), check the FAQ.
+- **Only cities with at least 5,000 inhabitants are autocompleted.** If you want cities down to 1,000 inhabitants to be autocompleted (which will make the file size considerably bigger), check the FAQ below.
 
 ### Pros of using autocompleteCity instead of Google Maps Place Autocomplete:
 
@@ -51,3 +51,21 @@ Simply download the files and open demo.html in a browser.
 1. **Only applicable if you've changed some of the code above:** Make sure that the value of ```<input list="..."``` matches the value of ```<datalist id="..."```, and make sure that the IDs in the JS (```document.getElementById('...')```) refer to the correct elements.
 
 1. Change the line ```console.log(city)``` to whatever code you would like to run when the user has entered and selected a city. The ```city``` object in that line contains information about the selected city such as its location, region, etc. You could write some code that places that info in hidden input fields in your form, so that the info can be saved to your server when the user submits the form.
+
+## FAQ
+
+### How do I style the city input field?
+
+autocompleteCity doesn't include any CSS, and the input field is a normal text input field that you can style using your own CSS however you want. Note that the list of cities that appear when you start typing a city is made using the HTML element ```<datalist>``` which can be a bit difficult to style. This is rarely a problem, though, since ```<datalist>``` looks good in most browsers by default.
+
+### Why doesn't the custom function that is run when the user selects a city run immediately?
+
+The custom function (```console.log(city)``` in the example above) is invoked via the *change* event on the input field (this is necessary since it's currently not possible to attach events to a ```<datalist>``` element). The *change* event in some cases doesn't fire until the visitor unfocuses the input field.
+
+### How do I add more cities to the data?
+
+As mentioned above, the city data only includes cities down to 5,000 inhabitants. This is to keep the file size to a decent size. If you want to include cities all the way down to 1,000 inhabitants, see the [geonames2js](https://github.com/kode95/geonames2js) readme for info about how to download the city file containing cities with 1,000+ inhabitants. Once the geoNames.js file has been generated, move it into the src directory of autocompleteCity, open a terminal, and run ```sh build.sh``` from inside the src directory.
+
+### Where does the city data come from?
+
+It comes from [GeoNames](https://www.geonames.org/) (thank you, GeoNames!) and gets downloaded and processed via another project of mine; [geonames2js](https://github.com/kode95/geonames2js).
