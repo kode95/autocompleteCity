@@ -2,6 +2,8 @@
 
 ### A faster alternative to Google Maps Place Autocomplete
 
+![](./screenshot.png)
+
 This project takes a different approach to those input fields where you can enter your city/location and get it auto-completed: The city lookups are performed client-side, so no communication with a server is needed.
 
 This presents both advantages and disadvantages compared to the "normal" way of doing it (using an API such as e.g. Google Maps Place Autocomplete). Let's hear the bad news first:
