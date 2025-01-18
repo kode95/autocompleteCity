@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>autocompleteCity demo</title>
+  </head>
+
+  <body>
+    <input list="autocomplete-city-list" id="city" autocomplete="off">
+
+    <datalist id="autocomplete-city-list"></datalist>
+
+    <script src="autocompleteCity/autocompleteCity.js"></script>
+    <script>
+      autocompleteCity(
+        document.getElementById('city'),
+        document.getElementById('autocomplete-city-list'),
+        (city) => {
+          console.log(city)
+        }
+      )
+    </script>
+  </body>
+</html>
