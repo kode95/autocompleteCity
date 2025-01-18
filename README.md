@@ -2,7 +2,7 @@
 
 ### A faster alternative to Google Maps Place Autocomplete
 
-![](./screenshot.png)
+<img src="./screenshot.png" width="273" height="185" alt="Input field with autocomplete" />
 
 This project takes a different approach to those input fields where you can enter your city/location and get it auto-completed: The city lookups are performed client-side, so no communication with a server is needed.
 
