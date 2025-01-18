@@ -50,13 +50,35 @@ Simply download the files and open demo.html in a browser.
 
 1. **Only applicable if you've changed some of the code above:** Make sure that the value of ```<input list="..."``` matches the value of ```<datalist id="..."```, and make sure that the IDs in the JS (```document.getElementById('...')```) refer to the correct elements.
 
-1. Change the line ```console.log(city)``` to whatever code you would like to run when the user has entered and selected a city. The ```city``` object in that line contains information about the selected city such as its location, region, etc. You could write some code that places that info in hidden input fields in your form, so that the info can be saved to your server when the user submits the form.
+1. Change the line ```console.log(city)``` to whatever code you would like to run when the user has entered and selected a city. The ```city``` object in that line contains information about the selected city such as its location, region, etc. See the FAQ for an example of how your custom code could look.
 
 ## FAQ
 
 ### How do I style the city input field?
 
 autocompleteCity doesn't include any CSS, and the input field is a normal text input field that you can style using your own CSS however you want. Note that the list of cities that appear when you start typing a city is made using the HTML element ```<datalist>``` which can be a bit difficult to style. This is rarely a problem, though, since ```<datalist>``` looks good in most browsers by default.
+
+### How do I save the city data that the user selected?
+
+You can modify the custom function to look like this:
+```js
+(city) => {
+  let inputName, input
+  for (let prop in city) {
+    inputName = `autocomplete-city-${prop}`
+    if (document.getElementsByName(inputName).length) {
+      document.getElementsByName(inputName)[0].value = city[prop]
+    } else {
+      input = document.createElement('input')
+      input.name = inputName
+      input.type = 'hidden'
+      input.value = city[prop]
+      document.body.appendChild(input)
+    }
+  }
+}
+```
+This puts everything in the city object into hidden input fields where they can be easily saved on the server-side once the user submits your form.
 
 ### Why doesn't the custom function that is run when the user selects a city run immediately?
 
