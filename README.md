@@ -11,7 +11,7 @@ This presents both advantages and disadvantages compared to the "normal" way of 
 ### Cons of using autocompleteCity instead of Google Maps Place Autocomplete:
 
 - **No localization.** The city names are in English, so for instance, if visitors to your website who live in Munich in Germany input the name of their city, they'll have to write *Munich* as opposed to the German *München*.
-- **Semi-large file:** The city data and the JS code combined are about 2.6 MB, although when sent over HTTP, your server will probably compress them down to about 1 MB. Not terrible per se size-wise, but also not perfect.
+- **Semi-large file:** The city data and the JS code combined are about 2.6 MB, although when sent over HTTP, your server will probably compress them down to about 1 MB. That is (depending on the speed of your users' Internet connection) tolerable, but certainly not ideal. Do keep in mind, though, that only the page/view that contains the autocomplete widget needs to include those 1 MB.
 - **Only cities:** This project only allows you to autocomplete cities, not landmarks, restaurants, etc.
 - **Only cities with at least 5,000 inhabitants are autocompleted.** If you want cities down to 1,000 inhabitants to be autocompleted (which will make the file size considerably bigger), check the FAQ below.
 
