@@ -28,6 +28,8 @@ Simply download the files and open demo.html in a browser.
 
 ## Install
 
+#### **Note: If your project uses Vue, you should probably take a look at the [Vue version of this project](https://github.com/kode95/vueAutocompleteCity). For everyone else, please continue:**
+
 1. Upload the file autocompleteCity.js to your server.
 
 1. Put the following into an HTML file, and make sure the path to autocompleteCity.js in ```<script src="..."``` matches where you uploaded the file to:
